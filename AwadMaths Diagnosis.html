@@ -743,24 +743,6 @@ function renderResults() {
 
   // CTA
   if (mode === 'lead') {
-    document.getElementById('cta-text').textContent =
-      "Hassan works with a small number of students using a diagnosis-led method built around your specific gaps — not a generic curriculum.";
-    document.getElementById('cta-action').innerHTML = `
-      <a href="https://wa.me/966563221076?text=Hi%20Hassan%2C%20I%20just%20completed%20the%20Awad%20Maths%20diagnostic%20and%20would%20like%20to%20discuss%20tutoring." target="_blank" class="btn-wa">
-        Message Hassan on WhatsApp
-      </a>`;
-  } else {
-    document.getElementById('cta-text').textContent =
-      "Your full report is above. Discuss these results with Hassan in your next session.";
-    document.getElementById('cta-action').innerHTML = `
-      <div class="cta-student-note">
-        Bring this report to your next session. Hassan will use these results to plan exactly what you work on next.
-      </div>`;
-  }
-
-  goTo('results');
-  // CTA
-  if (mode === 'lead') {
     var scoreLines = overall.map(function(o){ return o.test.label + ': ' + o.correct + '/' + o.total; }).join(', ');
     var waMsg = 'Hi Hassan, I have just completed the Awad Maths diagnostic. My results: ' + totalC + '/' + totalP + ' overall. ' + scoreLines + '. I would like to book a free 20-minute call to go through my results.';
     var waText = encodeURIComponent(waMsg);
@@ -809,7 +791,6 @@ function buildNarrative(overall, totalC, totalP, ovPct) {
   var p2 = 'Your two weakest areas are '+w.test.label+' ('+w.pct+'%) and '+s2.test.label+' ('+s2.pct+'%). '+w.test.label+' is the priority — until that is stable, progress elsewhere will be slower than it should be.';
   var p3 = best.pct>=70 ? best.test.label+' at '+best.pct+'% shows a solid base to build from. With targeted daily work, meaningful improvement is realistic within 2-3 months.' : 'There is work to do across the board, but nothing here is unfixable. With the right method and consistency, real progress is achievable.';
   nb.innerHTML = [p1,p2,p3].map(function(p){return '<p>'+p+'</p>';}).join('');
-}
 }
 </script>
 </body>
